@@ -1,0 +1,1 @@
+Credits to https://github.com/KevinNovak/Discord-Bot-TypeScript-Template as I am using their project as a backbone.

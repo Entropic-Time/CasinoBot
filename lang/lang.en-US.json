@@ -1,0 +1,666 @@
+{
+    "data": {
+        "displayEmbeds": {
+            "welcome": {
+                "title": "Thank you for using {{COM:bot.name}}!",
+                "description": [
+                    "{{REF:bot.description}}"
+                ],
+                "fields": [
+                    {
+                        "name": "Important {{REF:fields.commands}}",
+                        "value": [
+                            "{{CMD_LINK_HELP}} - {{REF:commandDescs.help}}"
+                        ]
+                    },
+                    {
+                        "name": "{{REF:fields.links}}",
+                        "value": [
+                            "{{REF:links.docsEmbed}}",
+                            "{{REF:links.supportEmbed}}"
+                        ]
+                    }
+                ]
+            },
+            "helpContactSupport": {
+                "title": "Help - {{REF:helpOptions.contactSupport}}",
+                "description": [
+                    "Have a question or feedback? Join our support server at the link below!"
+                ],
+                "fields": [
+                    {
+                        "name": "{{REF:fields.links}}",
+                        "value": [
+                            "{{REF:links.supportEmbed}}"
+                        ]
+                    }
+                ]
+            },
+            "test": {
+                "description": "Test command works!"
+            },
+            "viewDateJoined": {
+                "description": "{{TARGET}} joined on {{DATE}}!"
+            },
+            "viewDateSent": {
+                "description": "This message was sent on {{DATE}}!"
+            },
+            "about": {
+                "title": "{{COM:bot.name}} - About",
+                "description": "{{REF:bot.description}}",
+                "fields": [
+                    {
+                        "name": "Author",
+                        "value": "{{REF:links.authorEmbed}}"
+                    },
+                    {
+                        "name": "{{REF:fields.links}}",
+                        "value": [
+                            "{{REF:links.sourceEmbed}}",
+                            "{{REF:links.docsEmbed}}",
+                            "{{REF:links.termsEmbed}}",
+                            "{{REF:links.voteEmbed}}",
+                            "{{REF:links.donateEmbed}}",
+                            "{{REF:links.supportEmbed}}",
+                            "{{REF:links.inviteEmbed}}"
+                        ]
+                    },
+                    {
+                        "name": "Created With",
+                        "value": [
+                            "{{REF:links.templateEmbed}}"
+                        ]
+                    }
+                ]
+            },
+            "translate": {
+                "title": "{{COM:bot.name}} - Translations",
+                "description": "Thank you to our translators who have made it possible for {{COM:bot.name}} to be used in the following languages. If you are interested in providing a translation, please contact the staff in our [support server]({{COM:links.support}})."
+            },
+            "devInfo": {
+                "title": "{{COM:bot.name}} - Developer Info",
+                "fields": [
+                    {
+                        "name": "Versions",
+                        "value": [
+                            "**Node.js**: {{NODE_VERSION}}",
+                            "**TypeScript**: {{TS_VERSION}}",
+                            "**ECMAScript**: {{ES_VERSION}}",
+                            "**discord.js**: {{DJS_VERSION}}"
+                        ]
+                    },
+                    {
+                        "name": "Stats",
+                        "value": [
+                            "**Shards**: {{SHARD_COUNT}}",
+                            "**Servers**: {{SERVER_COUNT}} ({{SERVER_COUNT_PER_SHARD}}/Shard)"
+                        ]
+                    },
+                    {
+                        "name": "Memory",
+                        "value": [
+                            "**RSS**: {{RSS_SIZE}} ({{RSS_SIZE_PER_SERVER}}/Server)",
+                            "**Heap**: {{HEAP_TOTAL_SIZE}} ({{HEAP_TOTAL_SIZE_PER_SERVER}}/Server)",
+                            "**Used**: {{HEAP_USED_SIZE}} ({{HEAP_USED_SIZE_PER_SERVER}}/Server)"
+                        ]
+                    },
+                    {
+                        "name": "IDs",
+                        "value": [
+                            "**Hostname**: {{HOSTNAME}}",
+                            "**Shard ID**: {{SHARD_ID}}",
+                            "**Server ID**: {{SERVER_ID}}",
+                            "**Bot ID**: {{BOT_ID}}",
+                            "**User ID**: {{USER_ID}}"
+                        ]
+                    }
+                ]
+            }
+        },
+        "validationEmbeds": {
+            "cooldownHit": {
+                "description": "You can only run this command {{AMOUNT}} time(s) every {{INTERVAL}}. Please wait before attempting this command again.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "botDevOnly": {
+                "description": "This action can only be done by bot developers.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "botAdminOnly": {
+                "description": "This action can only be done by bot admin.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "botTranslatorsOnly": {
+                "description": "This action can only be done by bot translators.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "missingClientPerms": {
+                "description": [
+                    "I don't have all permissions required to run that command here! Please check the server and channel permissions to make sure I have the following permissions.",
+                    "",
+                    "Required permissions: {{PERMISSIONS}}"
+                ],
+                "color": "{{COM:colors.warning}}"
+            }
+        },
+        "errorEmbeds": {
+            "command": {
+                "description": "Something went wrong!",
+                "fields": [
+                    {
+                        "name": "Error code",
+                        "value": "{{ERROR_CODE}}"
+                    },
+                    {
+                        "name": "Server ID",
+                        "value": "{{GUILD_ID}}"
+                    },
+                    {
+                        "name": "Shard ID",
+                        "value": "{{SHARD_ID}}"
+                    },
+                    {
+                        "name": "Contact support",
+                        "value": "{{COM:links.support}}"
+                    }
+                ],
+                "color": "{{COM:colors.error}}"
+            },
+            "startupInProcess": {
+                "description": "{{COM:bot.name}} is still starting up. Try again later.",
+                "color": "{{COM:colors.warning}}"
+            },
+            "notImplemented": {
+                "description": "This feature has not been implemented yet!",
+                "color": "{{COM:colors.warning}}"
+            }
+        },
+        "channelRegexes": {
+            "bot": "/bot|command|cmd/i"
+        },
+        "commands": {
+            "chatInput": [
+                {
+                    "key": "developer",
+                    "name": "developer",
+                    "description": "Developer config.",
+                    "permissionNeeded": 1,
+                    "category": 9,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "option",
+                            "name": "option",
+                            "type": 12,
+                            "required": true,
+                            "choices": [
+                                {
+                                    "value": "configurations",
+                                    "name": "Configurations"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "help",
+                    "name": "help",
+                    "description": "Find help or contact support.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "option",
+                            "name": "option",
+                            "type": 12,
+                            "required": false,
+                            "choices": [
+                                {
+                                    "value": "support",
+                                    "name": "Support"
+                                },
+                                {
+                                    "value": "usage",
+                                    "name": "Usage"
+                                },
+                                {
+                                    "value": "calls",
+                                    "name": "Calls"
+                                },
+                                {
+                                    "value": "games",
+                                    "name": "Games"
+                                },
+                                {
+                                    "value": "upgrades",
+                                    "name": "Upgrades"
+                                },
+                                {
+                                    "value": "promotionals",
+                                    "name": "Promotionals"
+                                },
+                                {
+                                    "value": "serverMod",
+                                    "name": "Server Mod"
+                                },
+                                {
+                                    "value": "botTranslator",
+                                    "name": "Bot Translator"
+                                },
+                                {
+                                    "value": "botAdmin",
+                                    "name": "Bot Admin"
+                                },
+                                {
+                                    "value": "botDeveloper",
+                                    "name": "Bot Developer"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "report",
+                    "name": "report",
+                    "description": "Submit a bug report or feedback.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "type",
+                            "name": "type",
+                            "type": 12,
+                            "required": true,
+                            "choices": [
+                                {
+                                    "value": "bug",
+                                    "name": "Bug Report"
+                                },
+                                {
+                                    "value": "feedback",
+                                    "name": "Feedback"
+                                },
+                                {
+                                    "value": "suggestion",
+                                    "name": "Suggestion"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "description",
+                            "name": "description",
+                            "type": 3,
+                            "required": true
+                        }
+                    ]
+                },
+                {
+                    "key": "status",
+                    "name": "status",
+                    "description": "Check the status of a submitted report.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "id",
+                            "name": "id",
+                            "type": 10,
+                            "required": false
+                        }
+                    ]
+                },
+                {
+                    "key": "ping",
+                    "name": "ping",
+                    "description": "Ping the bot.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": []
+                },
+                {
+                    "key": "info",
+                    "name": "info",
+                    "description": "Find info about the bot.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": []
+                },
+                {
+                    "key": "interest",
+                    "name": "interest",
+                    "description": "Find the current interest rate.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": []
+                },
+                {
+                    "key": "search",
+                    "name": "search",
+                    "description": "Searches for credits.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": []
+                },
+                {
+                    "key": "balance",
+                    "name": "balance",
+                    "description": "Returns the balance of a user.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "user",
+                            "name": "user",
+                            "type": 6,
+                            "required": false
+                        }
+                    ]
+                },
+                {
+                    "key": "transfer",
+                    "name": "transfer",
+                    "description": "Transfer credits from balance to another user.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "user",
+                            "name": "user",
+                            "type": 6,
+                            "required": true
+                        },
+                        {
+                            "key": "amount",
+                            "name": "amount",
+                            "type": 3,
+                            "required": true
+                        }
+                    ]
+                },
+                {
+                    "key": "bank",
+                    "name": "bank",
+                    "description": "Withdraw from or deposit into your bank.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "mode",
+                            "name": "mode",
+                            "type": 12,
+                            "required": false,
+                            "choices": [
+                                {
+                                    "value": "deposit",
+                                    "name": "Deposit"
+                                },
+                                {
+                                    "value": "withdraw",
+                                    "name": "Withdraw"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "amount",
+                            "name": "amount",
+                            "type": 3,
+                            "required": false
+                        }
+                    ]
+                },
+                {
+                    "key": "leaderboard",
+                    "name": "leaderboard",
+                    "description": "Get the leaderboard of total net worth by credits.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "mode",
+                            "name": "mode",
+                            "type": 12,
+                            "required": false,
+                            "choices": [
+                                {
+                                    "value": "server",
+                                    "name": "Server"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "limit",
+                            "name": "limit",
+                            "type": 4,
+                            "required": false
+                        }
+                    ]
+                },
+                {
+                    "key": "daily",
+                    "name": "daily",
+                    "description": "Collect your daily.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": []
+                },
+                {
+                    "key": "weekly",
+                    "name": "weekly",
+                    "description": "Collect your weekly. This is only redeemable every 7 collected dailies.",
+                    "permissionNeeded": 1,
+                    "category": 1,
+                    "dataEmbed": "dev",
+                    "options": []
+                },
+                {
+                    "key": "blackjack",
+                    "name": "blackjack",
+                    "description": "Play a game of blackjack.",
+                    "permissionNeeded": 1,
+                    "category": 2,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "bet",
+                            "name": "bet",
+                            "type": 3,
+                            "required": true
+                        }
+                    ]
+                },
+                {
+                    "key": "coinflip",
+                    "name": "coinflip",
+                    "description": "Play a game of coinflip.",
+                    "permissionNeeded": 1,
+                    "category": 2,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "bet",
+                            "name": "bet",
+                            "type": 3,
+                            "required": true
+                        }
+                    ]
+                },
+                {
+                    "key": "guess",
+                    "name": "guess",
+                    "description": "Play a game of guess.",
+                    "permissionNeeded": 1,
+                    "category": 2,
+                    "dataEmbed": "dev",
+                    "options": [
+                        {
+                            "key": "bet",
+                            "name": "bet",
+                            "type": 3,
+                            "required": true
+                        },
+                        {
+                            "key": "guess",
+                            "name": "guess",
+                            "type": 3,
+                            "required": true
+                        }
+                    ]
+                },
+                {
+                    "key": "test",
+                    "name": "test",
+                    "description": "Random test command. Not sure what's there atm.",
+                    "permissionNeeded": 1,
+                    "category": 5,
+                    "dataEmbed": "dev",
+                    "options": []
+                }
+            ]
+        }
+    },
+    "refs": {
+        "meta": {
+            "translators": ""
+        },
+        "bot": {
+            "description": "Virtual system meant to entertain users with games and transactions (being reworked)"
+        },
+        "argumentTypes": {
+            "subcommand": "subcommand",
+            "subcommandGroup": "subcommandGroup",
+            "string": "string",
+            "integer": "integer",
+            "boolean": "boolean",
+            "user": "user",
+            "channel": "channel",
+            "role": "role",
+            "mentionable": "mentionable",
+            "number": "number",
+            "attachment": "attachment",
+            "choice": "choice"
+        },
+        "chatCommands": {
+            "dev": "dev",
+            "help": "help",
+            "info": "info",
+            "test": "test",
+            "balance": "balance",
+            "bank": "bank",
+            "daily": "daily",
+            "blackjack": "blackjack"
+        },
+        "commandDescs": {
+            "dev": "Developer use only.",
+            "help": "Find help or contact support.",
+            "info": "View bot info.",
+            "test": "Run the test command.",
+            "balance": "Returns the balance of a user.",
+            "bank": "Withdraw from or deposit into your bank.",
+            "daily": "Collect your daily."
+        },
+        "argDescs": {
+            "devCommand": "Command.",
+            "helpOption": "Option.",
+            "infoOption": "Option.",
+            "userOption": "User?"
+        },
+        "userCommands": {
+            "viewDateJoined": "View Date Joined"
+        },
+        "messageCommands": {
+            "viewDateSent": "View Date Sent"
+        },
+        "fields": {
+            "commands": "Commands",
+            "links": "Links"
+        },
+        "permissions": {
+            "AddReactions": "Add Reactions",
+            "Administrator": "Administrator",
+            "AttachFiles": "Attach Files",
+            "BanMembers": "Ban Members",
+            "ChangeNickname": "Change Nickname",
+            "Connect": "Connect",
+            "CreateEvents": "Create Events",
+            "CreateGuildExpressions": "Create Expressions",
+            "CreateInstantInvite": "Create Invite",
+            "CreatePrivateThreads": "Create Private Threads",
+            "CreatePublicThreads": "Create Public Threads",
+            "DeafenMembers": "Deafen Members",
+            "EmbedLinks": "Embed Links",
+            "KickMembers": "Kick Members",
+            "ManageChannels": "Manage Channel(s)",
+            "ManageEmojisAndStickers": "Manage Emoji and Stickers",
+            "ManageEvents": "Manage Events",
+            "ManageGuild": "Manage Server",
+            "ManageGuildExpressions": "Manage Expressions",
+            "ManageMessages": "Manage Messages",
+            "ManageNicknames": "Manage Nicknames",
+            "ManageRoles": "Manage Roles / Permissions",
+            "ManageThreads": "Manage Threads / Posts",
+            "ManageWebhooks": "Manage Webhooks",
+            "MentionEveryone": "Mention Everyone, Here, and All Roles",
+            "ModerateMembers": "Timeout Members",
+            "MoveMembers": "Move Members",
+            "MuteMembers": "Mute Members",
+            "PrioritySpeaker": "Priority Speaker",
+            "ReadMessageHistory": "Read Message History",
+            "RequestToSpeak": "Request to Speak",
+            "SendMessages": "Send Messages / Create Posts",
+            "SendMessagesInThreads": "Send Messages in Threads / Posts",
+            "SendPolls": "Create Polls",
+            "SendTTSMessages": "Send Text-to-Speech Messages",
+            "SendVoiceMessages": "Send Voice Messages",
+            "Speak": "Speak",
+            "Stream": "Video",
+            "UseApplicationCommands": "Use Application Commands",
+            "UseEmbeddedActivities": "Use Activities",
+            "UseExternalEmojis": "Use External Emoji",
+            "UseExternalSounds": "Use External Sounds",
+            "UseExternalStickers": "Use External Stickers",
+            "UseSoundboard": "Use Soundboard",
+            "UseVAD": "Use Voice Activity",
+            "ViewAuditLog": "View Audit Log",
+            "ViewChannel": "View Channel(s)",
+            "ViewCreatorMonetizationAnalytics": "View Server Subscription Insights",
+            "ViewGuildInsights": "View Server Insights"
+        },
+        "devCommandNames": {
+            "info": "info"
+        },
+        "yesNo": {
+            "yes": "Yes",
+            "no": "No"
+        },
+        "boolean": {
+            "true": "True",
+            "false": "False"
+        },
+        "other": {
+            "na": "N/A"
+        },
+        "links": {
+            "authorEmbed": "[{{COM:bot.author}}]({{COM:links.author}})",
+            "docsEmbed": "[View Documentation]({{COM:links.docs}})",
+            "donateEmbed": "[Donate via PayPal]({{COM:links.donate}})",
+            "inviteEmbed": "[Invite {{COM:bot.name}} to a Server!]({{COM:links.invite}})",
+            "sourceEmbed": "[View Source Code]({{COM:links.source}})",
+            "supportEmbed": "[Join Support Server]({{COM:links.support}})",
+            "templateEmbed": "[Discord Bot TypeScript Template]({{COM:links.template}})",
+            "termsEmbed": "[View Terms of Service]({{COM:links.terms}})",
+            "voteEmbed": "[Vote for {{COM:bot.name}}!]({{COM:links.vote}})"
+        }
+    }
+}

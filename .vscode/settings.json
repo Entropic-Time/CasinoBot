@@ -1,5 +1,56 @@
 {
     "cSpell.words": [
-        "applicationcommands"
-    ]
+        "applicationcommands",
+        "autocompletes",
+        "autocompleting",
+        "AUTOINCREMENT",
+        "Cmds",
+        "coinflip",
+        "cooldown",
+        "Cooldowns",
+        "Datas",
+        "Descs",
+        "filesize",
+        "Leaderboard",
+        "luxon",
+        "Millis",
+        "Parens",
+        "pino",
+        "promotionals",
+        "Regexes",
+        "RESTJSON",
+        "SUBCOMMANDGROUP",
+        "Unescapes"
+    ],
+
+    "files.exclude": {
+        ".github/": true,
+        ".vscode/": false,
+        "node_modules/": true,
+        "dist/": true,
+        "misc/": true,
+        ".dockerignore": true,
+        ".eslintignore": true,
+        ".eslintrc.json": true,
+        ".prettierignore": true,
+        ".prettierrc.json": true,
+        "package-lock.json": true,
+        "tsconfig.json": true,
+        "sonar-project.properties": true,
+        "LICENSE": true,
+        "README.md": true,
+        "process.json": true,
+
+        "src/interactions/command.ts": true,
+        "src/interactions/message": true,
+        "src/interactions/user": true,
+
+        "src/buttons": true,
+        "src/reactions": true,
+        "src/triggers": true,
+        
+        "src/extensions": true,
+        "src/constants": true,
+        "src/middleware": true
+    }
 }
