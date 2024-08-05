@@ -11,7 +11,7 @@ import {
 } from 'discord.js';
 
 import { Language } from '../models/enum-helpers/index.js';
-import { Lang } from '../services/index.js';
+import { Lang, Logger } from '../services/index.js';
 import { PermissionNeeded, OptionType, CommandCategory } from '../enums/index.js';
 
 //needs work
@@ -274,6 +274,8 @@ function generateChatCommandMetadata(chatCommandsArr: CommandJSON[]) {
     chatCommandsArr.forEach(command => {
         metadata[command.name] = command.generateMetadata();
     });
+
+    Logger.info('Generated metadata');
 
     return metadata;
 }

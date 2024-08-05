@@ -4,6 +4,7 @@
 .gitignore
 /dist
 /temp
+/owner
 /database
 /**/config/**/*.json
 !/**/config/**/*.example.json

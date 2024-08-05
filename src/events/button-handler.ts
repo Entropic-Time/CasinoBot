@@ -51,8 +51,6 @@ export class ButtonHandler implements EventHandler {
             return;
         }
 
-        console.log(button)
-
         // Defer interaction
         // NOTE: Anything after this point we should be responding to the interaction
         switch (button.deferType) {
